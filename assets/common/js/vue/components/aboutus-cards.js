@@ -35,29 +35,32 @@ var aboutusCards = Vue.component('aboutus-cards', {
         }
     },
     template: `
-        <div class="aboutus">
-            <div v-on:mouseover="CardOn('target')" v-on:mouseleave="CardOut" class="aboutus-card rounded w-1/6">
-                <div>
-                    <router-link to="/">
-                        <img v-bind:src="'./assets/common/img/' + target + '.png'" alt="Target Orange">
-                        <h3>OBJETIVO</h3>
-                    </router-link>
+        <div>
+            <main-banner></main-banner>
+            <div class="aboutus">
+                <div v-on:mouseover="CardOn('target')" v-on:mouseleave="CardOut" class="aboutus-card rounded w-1/6">
+                    <div>
+                        <router-link to="/">
+                            <img v-bind:src="'./assets/common/img/' + target + '.png'" alt="Target Orange">
+                            <h3>OBJETIVO</h3>
+                        </router-link>
+                    </div>
                 </div>
-            </div>
-            <div v-on:mouseover="CardOn('gear')" v-on:mouseleave="CardOut" class="aboutus-card rounded w-1/6">
-                <div>
-                    <router-link to="Mision">
-                        <img v-bind:src="'./assets/common/img/' + gear + '.png'" alt="Gear Orange">
-                        <h3>MISIÓN & VISIÓN</h3>
-                    </router-link>
+                <div v-on:mouseover="CardOn('gear')" v-on:mouseleave="CardOut" class="aboutus-card rounded w-1/6">
+                    <div>
+                        <router-link to="Mision">
+                            <img v-bind:src="'./assets/common/img/' + gear + '.png'" alt="Gear Orange">
+                            <h3>MISIÓN & VISIÓN</h3>
+                        </router-link>
+                    </div>
                 </div>
-            </div>
-            <div v-on:mouseover="CardOn('diagram')" v-on:mouseleave="CardOut" class="aboutus-card rounded w-1/6">
-                <div>
-                    <router-link to="/aboutusTabs">
-                        <img v-bind:src="'./assets/common/img/' + diagram + '.png'" alt="Diagram Orange">
-                        <h3>ORGANIGRAMA</h3>
-                    </router-link>
+                <div v-on:mouseover="CardOn('diagram')" v-on:mouseleave="CardOut" class="aboutus-card rounded w-1/6">
+                    <div>
+                        <router-link to="/aboutusTabs">
+                            <img v-bind:src="'./assets/common/img/' + diagram + '.png'" alt="Diagram Orange">
+                            <h3>ORGANIGRAMA</h3>
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,8 +1,38 @@
 import navbar from './vue/components/navbar.js';
-import banner from './vue/components/banner.js';
+import mainBanner from './vue/components/main-banner.js';
+import sectionBanner from './vue/components/section-banner.js';
 import footerContact from './vue/components/footer-contact.js';
 import footerMedia from './vue/components/footer-media.js';
-import router from './vue/router/index.js';
+import aboutusCards from './vue/components/aboutus-cards.js'
+import Mision from './vue/components/mision.js'
+import Vision from './vue/components/vision.js'
+import Organigrama from './vue/components/organigrama.js'
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'aboutus-cards',
+            component: aboutusCards
+        },
+        {
+            path: '/Mision',
+            name: 'Mision',
+            component: Mision
+        },
+        {
+            path: '/Vision',
+            name: 'Vision',
+            component: Vision
+        },
+        {
+            path: '/Organigrama',
+            name: 'Organigrama',
+            component: Organigrama
+        }
+    ]
+});
 
 const app = new Vue({
     el: '#app',
