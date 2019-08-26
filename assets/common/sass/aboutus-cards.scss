@@ -1,0 +1,82 @@
+    .aboutus {
+        height: 305px;
+    .aboutus-card {
+        text-align: center;
+        color: $MainOrange;
+        &:hover {
+            color: $MainBlue;
+        }
+        img {
+            text-align: center;
+        }
+        h3 {
+            margin-top: 20px;
+            font-family: 'Avenir';
+            font-weight: 900;
+            font-size: 28px;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .aboutus-card {
+        img {
+            margin-left: 25%;
+            width: 50%;
+        }
+    }
+}
+
+@media(min-width: 320px) {
+    .aboutus {
+        display: flow-root;
+        margin: 10px 0 10px 0;
+    }
+    .aboutus-card {
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+        &:not(first-child) {
+            margin-top: 40px;
+        }
+    }
+}
+
+@media(min-width: 440px) {
+    .aboutus {
+        display: flex;
+    }
+    .aboutus-card {
+        &:not(:first-child) {
+            margin-left: 5%;
+        }
+        &:first-child {
+            margin-left: 3%;
+        }
+        img {
+            margin-left: 33%;
+            width: 33%;
+        }
+    }
+}
+
+@media(min-width: 687px) {
+    .aboutus {
+        margin: 2.5rem 0 2.5rem 0;
+    }
+}
+
+@media(min-width: 768px) {
+    .aboutus-card {
+        div {
+            border: solid 2px transparent;
+            width: auto;
+            margin: -15px 40px 0 15px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            &:hover {
+                border: solid 2px $MainBlue;
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+.navbar {
+    background-color: #fff;
+}
+
+.navbar-brand {
+    img {
+        width: 10rem;
+        background-color: #fff;
+        position: absolute;
+        border-radius: 20px;
+        left: 2rem;
+    }
+}
+
+.navbar-nav {
+    .navbar-toggle {
+        button {
+            transform: translateY(0.5rem) rotate(90deg);
+            text-decoration: none;
+            outline: none;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            &:after {
+                transition: all 0.33s;
+                content: "";
+                display: block;
+                right: 0;
+                width: 0;
+                height: 0;
+                margin-left: 10px;
+                border-top: 15px solid transparent;
+                border-bottom: 15px solid transparent;
+                border-left: 15px solid $MainOrange;
+            }
+        }
+        .displayed-nav {
+            &:after {
+                border-left: 15px solid $MainBlue;
+                transform: rotate(180deg);
+            }
+        }
+    }
+    ul {
+        li {
+            a {
+                transition: all 0.33s;
+                font-family: 'Avenir';
+                font-weight: 900;
+                font-size: 12px;
+                color: $MainOrange;
+                &:hover {
+                    color: $MainBlue;
+                }
+            }
+        }
+        .active-link {
+            a {
+                color: $MainBlue;
+            }
+        }
+    }
+    .navbar-expanded {
+        display: list-item;
+        margin-top: 40px;
+        text-align: right;
+        margin-right: -50px;
+        li {
+            margin-top: 10px;
+        }
+    }
+}
+
+.navbar-separator {
+    &:before {
+        content: '|';
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        ul {
+            display: none;
+        }
+    }
+    .navbar-separator {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar-brand {
+        img {
+            width: 7rem;
+        }
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-toggle {
+        display: none;
+    }
+    .navbar-separator {
+        margin: 0px 20px 0px 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 884px) {
+    .navbar-separator {
+        margin: 0px 10px 0px 10px;
+    }
+}
