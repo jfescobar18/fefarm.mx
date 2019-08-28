@@ -1,5 +1,4 @@
-    .aboutus {
-        height: 305px;
+.aboutus {
     .aboutus-card {
         text-align: center;
         color: $MainOrange;
@@ -45,6 +44,7 @@
 @media(min-width: 440px) {
     .aboutus {
         display: flex;
+        height: 305px;
     }
     .aboutus-card {
         &:not(:first-child) {

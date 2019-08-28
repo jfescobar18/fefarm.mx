@@ -46,7 +46,7 @@ var navbar = Vue.component('navbar', {
                             <router-link class="" to="Mision">FEFARM<i class="navbar-separator"></i></router-link>
                         </li>
                         <li class="navbar-link">
-                            <router-link class="" to="/">BECAS<i class="navbar-separator"></i></router-link>
+                            <router-link class="" to="Becas">BECAS<i class="navbar-separator"></i></router-link>
                         </li>
                         <li class="navbar-link">
                             <router-link class="" to="/">NOTICIAS<i class="navbar-separator"></i></router-link>

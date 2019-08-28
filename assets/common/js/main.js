@@ -7,9 +7,9 @@ import aboutusCards from './vue/components/aboutus-cards.js'
 import Mision from './vue/components/mision.js'
 import Vision from './vue/components/vision.js'
 import Organigrama from './vue/components/organigrama.js'
+import Becas from './vue/components/becas.js'
 
 const router = new VueRouter({
-    mode: 'history',
     routes: [
         {
             path: '/',
@@ -30,6 +30,11 @@ const router = new VueRouter({
             path: '/Organigrama',
             name: 'Organigrama',
             component: Organigrama
+        },
+        {
+            path: '/Becas',
+            name: 'Becas',
+            component: Becas
         }
     ]
 });

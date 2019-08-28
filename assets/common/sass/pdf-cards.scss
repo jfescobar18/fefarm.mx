@@ -1,0 +1,71 @@
+.pdf-container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    display: inline-block;
+    .pdf-card {
+        height: 150px;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        .wave {
+            opacity: .5;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            background: #0099e5;
+            width: 500px;
+            height: 500px;
+            margin-left: -300px;
+            margin-top: -420px;
+            transform-origin: 50% 48%;
+            border-radius: 39%;
+            transform: rotate(45deg);
+        }
+        .wave.-three {
+            transform: rotate(0deg);
+        }
+        .wave.-two {
+            transform: rotate(0deg);
+            opacity: .1;
+        }
+        .title {
+            position: absolute;
+            left: -15px;
+            top: -20px;
+            width: 100%;
+            z-index: 1;
+            line-height: 150px;
+            text-align: right;
+            color: #EBBA41;
+            text-transform: uppercase;
+            font-family: 'Avenir';
+            font-weight: 900;
+            font-size: 100%;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .pdf-container {
+        .pdf-card {
+            margin-left: 6.4%;
+            min-width: 25%;
+            
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .pdf-container {
+        display: flow-root;
+        .pdf-card {
+            margin-left: 13.33%;
+            width: 30%;
+            &:not(first-child) {
+                margin-top: 30px;
+            }
+        }
+    }
+}
