@@ -25,7 +25,7 @@ var footerContact = Vue.component('footer-contact', {
                         </div>
                         <div class="text-area-container w-full">
                             <textarea name="" id="" cols="30" rows="10" placeholder="COMENTARIOS"></textarea>
-                            <button class="text-white font-black rounded" type="submit">Enviar</button>
+                            <button class="text-white font-black rounded-lg" type="submit">Enviar</button>
                         </div>
                     </form>
                 </div>

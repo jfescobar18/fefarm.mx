@@ -1,13 +1,4 @@
 var Organigrama = Vue.component('Vision', {
-    methods: {
-        AddActiveLink: function () {
-            var links = document.getElementsByClassName("navbar-link");
-            for (let i = 0; i < links.length; i++) {
-                links[i].className = links[i].className.replace(" active-link", "");
-            }
-            links[1].className += " active-link";
-        }
-    },
     template: `
         <div>
             <section-banner></section-banner>
@@ -25,10 +16,7 @@ var Organigrama = Vue.component('Vision', {
                 </div>
             </div>
         </div>
-    `,
-    mounted() {
-        this.AddActiveLink();
-    }
+    `
 })
 
 export default Organigrama;

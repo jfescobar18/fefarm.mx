@@ -1,8 +1,15 @@
 @import 'fonts';
 @import 'variables';
-@import 'navbar';
+@import 'bootstrap';
+@import 'loader';
+@import 'navibar';
 @import 'banner';
 @import 'aboutus-cards';
 @import 'footer';
 @import 'aboutus-tabs';
 @import 'pdf-cards';
+
+.content-title {
+    text-align: center;
+    margin: 30px 0 30px 0;
+}

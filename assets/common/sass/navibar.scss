@@ -1,19 +1,19 @@
-.navbar {
+.custom-navibar {
     background-color: #fff;
 }
 
-.navbar-brand {
+.navibar-brand {
     img {
-        width: 10rem;
+        width: 13rem;
         background-color: #fff;
         position: absolute;
         border-radius: 20px;
-        left: 2rem;
+        left: 3.5rem;
     }
 }
 
-.navbar-nav {
-    .navbar-toggle {
+.navibar-nav {
+    .navibar-toggle {
         button {
             transform: translateY(0.5rem) rotate(90deg);
             text-decoration: none;
@@ -49,7 +49,23 @@
                 font-weight: 900;
                 font-size: 12px;
                 color: $MainOrange;
-                &:hover {
+            }
+            &.dropdown {
+                ul {
+                    display: none;
+                    padding: 7px;
+                    background-color: $MainBlue;
+                    position: absolute;
+                    &.show {
+                        display: block;
+                    }
+                    a {
+                        color: $MainOrange;
+                    }
+                }
+            }
+            &:hover {
+                &>a {
                     color: $MainBlue;
                 }
             }
@@ -60,7 +76,7 @@
             }
         }
     }
-    .navbar-expanded {
+    .navibar-expanded {
         display: list-item;
         margin-top: 40px;
         text-align: right;
@@ -71,42 +87,49 @@
     }
 }
 
-.navbar-separator {
+.navibar-separator {
     &:before {
         content: '|';
     }
 }
 
 @media (max-width: 768px) {
-    .navbar-nav {
+    .navibar-nav {
         ul {
             display: none;
+            li {
+                &.dropdown {
+                    ul {
+                        position: initial;
+                    }
+                }
+            }
         }
     }
-    .navbar-separator {
+    .navibar-separator {
         display: none;
     }
 }
 
 @media (max-width: 420px) {
-    .navbar-brand {
+    .navibar-brand {
         img {
-            width: 7rem;
+            width: 10rem;
         }
     }
 }
 
 @media (min-width: 769px) {
-    .navbar-toggle {
+    .navibar-toggle {
         display: none;
     }
-    .navbar-separator {
+    .navibar-separator {
         margin: 0px 20px 0px 20px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 884px) {
-    .navbar-separator {
+    .navibar-separator {
         margin: 0px 10px 0px 10px;
     }
 }

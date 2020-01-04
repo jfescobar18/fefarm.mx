@@ -3,7 +3,7 @@ var sectionBanner = Vue.component('section-banner', {
         <div>
             <div class="banner section-banner">
                 <div class="banner-content">
-                    <button class="text-white font-black rounded">
+                    <button class="text-white font-black rounded-lg">
                         ¡Llama ahora!
                     </button>
                 </div>

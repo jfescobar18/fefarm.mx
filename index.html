@@ -13,20 +13,28 @@
     <link rel="stylesheet" href="assets/lib/tailwind/css/tailwind.min.css">
     <link rel="stylesheet" href="assets/common/css/main.min.css">
     <link rel="manifest" href="manifest.json" />
+    <script src="assets/lib/fontawesome/js/font-awesome.js"></script>
     <title>FEFARM MX</title>
 </head>
 
 <body>
     <div id="app">
-        <navbar></navbar>
+        <navibar></navibar>
         <router-view></router-view>
         <footer-contact></footer-contact>
         <footer-media></footer-media>
     </div>
 
+    <div class="loader" id="loader">
+        <svg width="48" height="48" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" version="1.1"><path d="M 150,0 a 150,150 0 0,1 106.066,256.066 l -35.355,-35.355 a -100,-100 0 0,0 -70.711,-170.711 z" fill="#76f19a"><animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 150 150" to="360 150 150" begin="0s" dur=".5s" fill="freeze" repeatCount="indefinite"></animateTransform></path></svg>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script src="assets/lib/sweet/js/sweet.min.js"></script>
+    <script src="assets/common/js/config.js"></script>
+    <script src="assets/common/js/global-functions.js"></script>
     <script type="module" src="assets/common/js/main.js "></script>
 </body>
 
