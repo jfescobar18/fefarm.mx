@@ -8,6 +8,7 @@ import Mision from './vue/components/mision.js'
 import Vision from './vue/components/vision.js'
 import Organigrama from './vue/components/organigrama.js'
 import Reglamento from './vue/components/Reglamento.js'
+import Solicitudes from './vue/components/Solicitudes.js'
 import Solicitud from './vue/components/Solicitud.js'
 import Evidencias from './vue/components/Evidencias.js'
 import Requisitos from './vue/components/Requisitos.js'
@@ -40,7 +41,12 @@ const router = new VueRouter({
             component: Reglamento
         },
         {
-            path: '/Solicitud',
+            path: '/Solicitudes',
+            name: 'Solicitudes',
+            component: Solicitudes
+        },
+        {
+            path: '/Solicitud/:Request_Id',
             name: 'Solicitud',
             component: Solicitud
         },

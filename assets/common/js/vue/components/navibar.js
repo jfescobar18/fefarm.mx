@@ -66,7 +66,7 @@ var navibar = Vue.component('navibar', {
                             <router-link class="dropdown-toggle" to="">BECAS&nbsp;<i class="fas fa-caret-down"></i><i class="navibar-separator"></i></router-link>
                             <ul class="dropdown-menu">
                                 <li><router-link to="Reglamento">Reglamento</router-link></li>
-                                <li><router-link to="Solicitud">Solicitud y Documentacion</router-link></li>
+                                <li><router-link to="Solicitudes">Solicitud y Documentacion</router-link></li>
                             </ul>
                         </li>
                         <li class="navibar-link dropdown">
