@@ -25,8 +25,6 @@ var Solicitud = Vue.component('Solicitud', {
                 response => {
                     this.RequestTemplate = response.body;
                     this.RequestTemplate.Request_JSON_Body = JSON.parse(this.RequestTemplate.Request_JSON_Body);
-                    console.log(this.RequestTemplate.Request_JSON_Body);
-                    
                     hideLoader();
                 },
                 err => {
@@ -39,29 +37,45 @@ var Solicitud = Vue.component('Solicitud', {
         sendRequest: function () {
             showLoader();
 
-            this.ApplicationFormData.append('Application_JSON_Body', JSON.stringify(this.RequestTemplate.Request_JSON_Body));
-            this.$http.post(APIUrl() + 'Application/AddApplication', this.ApplicationFormData, {
-                headers: {
-                    APIKey: config.APIKey
-                }
-            }).then(
-                response => {
-                    swal({
-                        icon: "success",
-                        title: '¡Éxito!',
-                        text: 'Solicitud enviada correctamente'
-                    }).then((value) => {
-                        this.$router.push(`/Solicitudes`)
-                    });
+            var span = document.createElement("span");
+            span.innerHTML = 'Aceptas el <a target="_blank" href="' + APIUrl() + 'advice/aviso.pdf">Aviso de Privacidad</a>';
+            swal({
+                icon: "warning",
+                title: 'Aviso de privacidad',
+                html: true,
+                content: span,
+                buttons: true,
+                dangerMode: true
+            }).then((value) => {
+                if (value) {
+                    this.ApplicationFormData.append('Application_JSON_Body', JSON.stringify(this.RequestTemplate.Request_JSON_Body));
+                    this.$http.post(APIUrl() + 'Application/AddApplication', this.ApplicationFormData, {
+                        headers: {
+                            APIKey: config.APIKey
+                        }
+                    }).then(
+                        response => {
+                            swal({
+                                icon: "success",
+                                title: '¡Éxito!',
+                                text: 'Solicitud enviada correctamente'
+                            }).then((value) => {
+                                this.$router.push(`/Solicitudes`)
+                            });
 
-                    hideLoader();
-                },
-                err => {
-                    console.log(err);
-                    error_swal('Error...', 'Error interno estamos trabajando para solucionarlo');
+                            hideLoader();
+                        },
+                        err => {
+                            console.log(err);
+                            error_swal('Error...', 'Error interno estamos trabajando para solucionarlo');
+                            hideLoader();
+                        }
+                    );
+                }
+                else {
                     hideLoader();
                 }
-            );
+            });
         },
         onFileChange: function (e, key) {
             for (let i = 0; i < e.target.files.length; i++) {
@@ -108,7 +122,7 @@ var Solicitud = Vue.component('Solicitud', {
                                 <input v-if="input.type === '2'" v-model="input.answers[0]" type="date" class="form-control" placeholder="" v-bind:id="'input-id-' + input.id">
                                 
                                 <select v-if="input.type === '3'" v-model="input.answers[0]" v-bind:id="'input-id-' + input.id" class="form-control">
-                                    <option v-for="(option, index) in input.values.array" v-bind:value="index + 1">{{ option.split(';').join(',') }}</option>
+                                    <option v-for="(option, index) in input.values.array" v-bind:value="index">{{ option.split(';').join(',') }}</option>
                                 </select>
                                 
                                 <template v-if="input.type === '4'">
