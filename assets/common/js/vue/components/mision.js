@@ -11,7 +11,9 @@ var Mision = Vue.component('Mision', {
                 <div class="aboutus-info">
                     <h1>MISIÓN</h1>
                     <p>
-                        Promover la atención de los grupos más vulnerables de la sociedad mexicana a fin de incentivar en el País la Farmacia Comunitaria, otorgando para tal efecto apoyos e incentivos para el desarrollo de la misma.
+                        La Misión de la FEFARM es otorgar becas para estudio o estancias de corta duración en el área de farmacia y en áreas afines para lo cual establecerá los convenios o acuerdos que sean necesarios con instituciones públicas o privadas, fundaciones nacionales o extranjeras y ofrecerá para un número de éstas anualmente, mediante convocatoria pública.
+                        <br />
+                        De manera particular, buscará promover la atención de la sociedad mexicana a fin de incentivar en ella la Farmacia Hospitalaria y Farmacia Comunitaria, otorgando para tal efecto, apoyo ya sea económico o distintivo a los que se destaquen por sus trabajos en estos rubros.
                     </p>
                 </div>
             </div>

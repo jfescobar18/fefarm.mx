@@ -11,7 +11,7 @@ var Vision = Vue.component('Vision', {
                 <div class="aboutus-info">
                     <h1>VISIÓN</h1>
                     <p>
-                        Organización dinámica e incluyente, integrada por farmacéuticos que se identifican con la misión y valores institucionales, abierta a coordinar esfuerzos en materia farmacéutica con otras organizaciones públicas y privadas de ámbito nacional como internacional.
+                        Una organización dinámica e incluyente, de ámbito de actuación tanto nacional como internacional, integrada por farmacéuticos que se identifican con la misión y valores institucionales, abierta a coordinar esfuerzos en materia farmacéutica con otras organizaciones públicas y privadas.    
                     </p>
                 </div>
             </div>

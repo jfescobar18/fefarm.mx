@@ -6,7 +6,7 @@ var footerMedia = Vue.component('footer-media', {
                     <p>© Copyright 2019. All Rights Reserved.</p>
                 </div>
                 <div class="footer-media-info">
-                    <p>Términos y Condiciones</p>
+                    <p><a target="_blank" v-bind:href="APIUrl() + 'advice/aviso.pdf'">Términos y Condiciones</a></p>
                 </div>
                 <div class="footer-media-info">
                     <a href="#">

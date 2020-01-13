@@ -55,10 +55,12 @@ var Solicitud = Vue.component('Solicitud', {
                         }
                     }).then(
                         response => {
+                            console.log(response);
+                            
                             swal({
                                 icon: "success",
                                 title: '¡Éxito!',
-                                text: 'Solicitud enviada correctamente'
+                                text: `Solicitud enviada correctamente tu número de folio es: ${response.body.IdNumber}`
                             }).then((value) => {
                                 this.$router.push(`/Solicitudes`)
                             });
