@@ -12,6 +12,7 @@ import Solicitudes from './vue/components/Solicitudes.js'
 import Solicitud from './vue/components/Solicitud.js'
 import Evidencias from './vue/components/Evidencias.js'
 import Requisitos from './vue/components/Requisitos.js'
+import Noticias from './vue/components/Noticias.js'
 
 const router = new VueRouter({
     routes: [
@@ -59,6 +60,11 @@ const router = new VueRouter({
             path: '/Requisitos',
             name: 'Requisitos',
             component: Requisitos
+        },
+        {
+            path: '/Noticias',
+            name: 'Noticias',
+            component: Noticias
         }
     ]
 });
