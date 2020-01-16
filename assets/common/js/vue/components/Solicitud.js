@@ -74,8 +74,6 @@ var Solicitud = Vue.component('Solicitud', {
             );
         },
         sendRequest: function () {
-            showLoader();
-
             var span = document.createElement("span");
             span.innerHTML = 'Aceptas el <a target="_blank" href="' + APIUrl() + 'advice/aviso.pdf">Aviso de Privacidad</a>';
             swal({
@@ -127,6 +125,8 @@ var Solicitud = Vue.component('Solicitud', {
                         warning_swal('Sin archivo', 'No has adjuntado Cuenta bancaria');
                     }
                     else {
+                        showLoader();
+                        
                         this.ApplicationFormData.append('Application_JSON_Body', JSON.stringify(this.RequestTemplate.Request_JSON_Body));
                         this.$http.post(APIUrl() + 'Application/AddApplication', this.ApplicationFormData, {
                             headers: {
