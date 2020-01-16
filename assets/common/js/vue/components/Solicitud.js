@@ -270,19 +270,6 @@ var Solicitud = Vue.component('Solicitud', {
                         </div>
 
                         <div class="col-md-4 mb-6">
-                            <label class="lbl-input-file">Carta compromiso
-                                <span class="qs"><i class="fas fa-info-circle"></i>
-                                    <span class="custom-popover above">De aceptación de la beca para Estancias</span>
-                                </span>
-                            </label>
-                            <input v-on:change="onFileChange(event, 'commitment-letter')" type="file" id="commitment-letter" class="input-file" accept="application/pdf">
-                            <label for="commitment-letter" class="btn btn-tertiary js-labelFile">
-                                <i class="icon fa fa-check"></i>
-                                <span class="js-fileName">Sube un archivo</span>
-                            </label>
-                        </div>
-
-                        <div class="col-md-4 mb-6">
                             <label class="lbl-input-file">Documentos complementarios
                                 <span class="qs"><i class="fas fa-info-circle"></i>
                                     <span class="custom-popover above">Necesarios para sustentar la Solicitud de Becas, Estancias y Estudio socioeconómico<br />(puede subir uno o más documentos)</span>
@@ -304,7 +291,7 @@ var Solicitud = Vue.component('Solicitud', {
                             </label>
                         </div>
 
-                        <div class="col-md-4 mb-6">
+                        <div class="col-md-4 mb-6 col-md-offset-4">
                             <label class="lbl-input-file">Cuenta bancaria
                                 <span class="qs"><i class="fas fa-info-circle"></i>
                                     <span class="custom-popover above">A su nombre y número CLABE</span>

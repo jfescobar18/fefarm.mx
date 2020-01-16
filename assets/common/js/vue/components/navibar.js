@@ -73,11 +73,11 @@ var navibar = Vue.component('navibar', {
                             <router-link class="dropdown-toggle" to="/">CONVOCATORIAS&nbsp;<i class="fas fa-caret-down"></i><i class="navibar-separator"></i></router-link>
                             <ul class="dropdown-menu">
                                 <li><router-link to="/Evidencias">Evidencias</router-link></li>
-                                <li><router-link to="/Requisitos">Requisitos</router-link></li>
+                                <li><router-link to="/Requisitos">Convocatorias</router-link></li>
                             </ul>
                         </li>
                         <li class="navibar-link">
-                            <router-link to="/">NOTICIAS<i class="navibar-separator"></i></router-link>
+                            <router-link to="/Noticias">NOTICIAS<i class="navibar-separator"></i></router-link>
                         </li>
                         <li class="navibar-link">
                             <router-link to="/">NUMERALIA</router-link>

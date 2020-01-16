@@ -31,7 +31,7 @@ var Requisitos = Vue.component('Requisitos', {
         <div>
             <section-banner></section-banner>
             
-            <h1 class="content-title">REQUISITOS</h1>
+            <h1 class="content-title">CONVOCATORIAS</h1>
 
             <div class="pdf-container">
                 <div class='pdf-card' v-for="pdf in PDFs">

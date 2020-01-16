@@ -7,7 +7,7 @@ var Noticias = Vue.component('Noticias', {
     methods: {
         loadPDFs: function () {
             showLoader();
-            this.$http.get(APIUrl() + 'NewPDF/GetPDFs', {
+            this.$http.get(APIUrl() + 'NewsPDF/GetPDFs', {
                 headers: {
                     APIKey: config.APIKey
                 }

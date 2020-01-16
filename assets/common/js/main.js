@@ -71,5 +71,11 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    mounted: function () {
+        if(localStorage.getItem("CachedPage") === null) {
+            localStorage.setItem('CachedPage', true);
+            window.location.reload(true);
+        }
+    }
 })

@@ -8,10 +8,10 @@ var footerContact = Vue.component('footer-contact', {
                         Nicolás San Juan n.1511, Col. Del Valle, 03100.<br> Ciudad de México, CDMX.
                     </P>
                     <p>
-                        mail. fefarm@fefarm.org.mx
+                        mail. fefarm@fefarm.mx
                     </p>
                     <p>
-                        Tel. 5605 - 7726
+                        Tel. 555605 - 7726
                     </p>
                 </div>
                 <div class="footer-form">
