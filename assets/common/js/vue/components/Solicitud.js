@@ -8,6 +8,45 @@ var Solicitud = Vue.component('Solicitud', {
         },
         Profile_Image_Url: {
             default: 'assets/common/img/avatar.png'
+        },
+        ProfileImage: {
+            default: null
+        },
+        TutorSignature: {
+            default: null
+        },
+        PersonSignature: {
+            default: null
+        },
+        BirthCertificate: {
+            default: null
+        },
+        CURP: {
+            default: null
+        },
+        OfficialId: {
+            default: null
+        },
+        ResidencyProof: {
+            default: null
+        },
+        Kardex: {
+            default: null
+        },
+        IncomeProof: {
+            default: null
+        },
+        ReregistrationProof: {
+            default: null
+        },
+        ComplementaryDocumentation: {
+            default: null
+        },
+        SmallPhotography: {
+            default: null
+        },
+        BankAccount: {
+            default: null
         }
     },
     methods: {
@@ -48,31 +87,72 @@ var Solicitud = Vue.component('Solicitud', {
                 dangerMode: true
             }).then((value) => {
                 if (value) {
-                    this.ApplicationFormData.append('Application_JSON_Body', JSON.stringify(this.RequestTemplate.Request_JSON_Body));
-                    this.$http.post(APIUrl() + 'Application/AddApplication', this.ApplicationFormData, {
-                        headers: {
-                            APIKey: config.APIKey
-                        }
-                    }).then(
-                        response => {
-                            console.log(response);
-                            
-                            swal({
-                                icon: "success",
-                                title: '¡Éxito!',
-                                text: `Solicitud enviada correctamente tu número de folio es: ${response.body.IdNumber}`
-                            }).then((value) => {
-                                this.$router.push(`/Solicitudes`)
-                            });
+                    if (this.ProfileImage === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado tu fotografía');
+                    }
+                    else if (this.TutorSignature === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Nombre y firma del padre o tutor');
+                    }
+                    else if (this.PersonSignature === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Nombre y firma del aspirante');
+                    }
+                    else if (this.BirthCertificate === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Acta de nacimiento');
+                    }
+                    else if (this.CURP === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado CURP');
+                    }
+                    else if (this.OfficialId === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Identificación oficial');
+                    }
+                    else if (this.ResidencyProof === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Comprobante de domicilio');
+                    }
+                    else if (this.Kardex === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Historial académico');
+                    }
+                    else if (this.IncomeProof === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Comprobante de ingresos');
+                    }
+                    else if (this.ReregistrationProof === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Comprobante de reinscripción');
+                    }
+                    else if (this.ComplementaryDocumentation === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Documentos complementarios');
+                    }
+                    else if (this.SmallPhotography === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Fotografía tamaño infantil');
+                    }
+                    else if (this.BankAccount === null) {
+                        warning_swal('Sin archivo', 'No has adjuntado Cuenta bancaria');
+                    }
+                    else {
+                        this.ApplicationFormData.append('Application_JSON_Body', JSON.stringify(this.RequestTemplate.Request_JSON_Body));
+                        this.$http.post(APIUrl() + 'Application/AddApplication', this.ApplicationFormData, {
+                            headers: {
+                                APIKey: config.APIKey
+                            }
+                        }).then(
+                            response => {
+                                console.log(response);
 
-                            hideLoader();
-                        },
-                        err => {
-                            console.log(err);
-                            error_swal('Error...', 'Error interno estamos trabajando para solucionarlo');
-                            hideLoader();
-                        }
-                    );
+                                swal({
+                                    icon: "success",
+                                    title: '¡Éxito!',
+                                    text: `Solicitud enviada correctamente tu número de folio es: ${response.body.IdNumber}`
+                                }).then((value) => {
+                                    this.$router.push(`/Solicitudes`)
+                                });
+
+                                hideLoader();
+                            },
+                            err => {
+                                console.log(err);
+                                error_swal('Error...', 'Error interno estamos trabajando para solucionarlo');
+                                hideLoader();
+                            }
+                        );
+                    }
                 }
                 else {
                     hideLoader();
@@ -108,7 +188,7 @@ var Solicitud = Vue.component('Solicitud', {
                         <div class="col-md-2 col-md-offset-10 pt-5">
                             <img class="profile-picture" v-bind:src="Profile_Image_Url" alt="profile"/>
 
-                            <input v-on:change="onFileChange(event, 'profile-image')" type="file" id="file" class="input-file" accept="image/x-png,image/jpeg">
+                            <input v-model="ProfileImage" v-on:change="onFileChange(event, 'profile-image')" type="file" id="file" class="input-file" accept="image/x-png,image/jpeg">
                             <label for="file" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube tu foto</span>
@@ -165,7 +245,7 @@ var Solicitud = Vue.component('Solicitud', {
 
                         <div class="col-md-4 col-md-offset-2 mb-6">
                             <label class="lbl-input-file">Nombre y firma del padre o tutor</label>
-                            <input v-on:change="onFileChange(event, 'tutor-signature')" type="file" id="tutor-signature" class="input-file" accept="application/pdf">
+                            <input v-model="TutorSignature" v-on:change="onFileChange(event, 'tutor-signature')" type="file" id="tutor-signature" class="input-file" accept="application/pdf">
                             <label for="tutor-signature" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -174,7 +254,7 @@ var Solicitud = Vue.component('Solicitud', {
 
                         <div class="col-md-4 mb-6">
                             <label class="lbl-input-file">Nombre y firma del aspirante</label>
-                            <input v-on:change="onFileChange(event, 'person-signature')" type="file" id="person-signature" class="input-file" accept="application/pdf">
+                            <input v-model="PersonSignature" v-on:change="onFileChange(event, 'person-signature')" type="file" id="person-signature" class="input-file" accept="application/pdf">
                             <label for="person-signature" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -188,7 +268,7 @@ var Solicitud = Vue.component('Solicitud', {
 
                         <div class="col-md-4 mb-6">
                             <label class="lbl-input-file">Acta de nacimiento</label>
-                            <input v-on:change="onFileChange(event, 'birth-certificate')" type="file" id="birth-certificate" class="input-file" accept="application/pdf">
+                            <input v-model="BirthCertificate" v-on:change="onFileChange(event, 'birth-certificate')" type="file" id="birth-certificate" class="input-file" accept="application/pdf">
                             <label for="birth-certificate" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -197,7 +277,7 @@ var Solicitud = Vue.component('Solicitud', {
 
                         <div class="col-md-4 mb-6">
                             <label class="lbl-input-file">CURP</label>
-                            <input v-on:change="onFileChange(event, 'CURP')" type="file" id="CURP" class="input-file" accept="application/pdf">
+                            <input v-model="CURP" v-on:change="onFileChange(event, 'CURP')" type="file" id="CURP" class="input-file" accept="application/pdf">
                             <label for="CURP" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -210,7 +290,7 @@ var Solicitud = Vue.component('Solicitud', {
                                     <span class="custom-popover above">Tal como cartilla del servicio militar nacional, pasaporte, credencial para votar con fotografía, acta de nacimiento u otra identificación</span>
                                 </span>
                             </label>
-                            <input v-on:change="onFileChange(event, 'official-id')" type="file" id="official-id" class="input-file" accept="application/pdf">
+                            <input v-model="OfficialId" v-on:change="onFileChange(event, 'official-id')" type="file" id="official-id" class="input-file" accept="application/pdf">
                             <label for="official-id" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -223,7 +303,7 @@ var Solicitud = Vue.component('Solicitud', {
                                     <span class="custom-popover above">Recibo de luz, agua, predial o teléfono, o en su caso, escrito libre de la autoridad local en el que se valide la residencia del solicitante (no mayor a tres meses)</span>
                                 </span>
                             </label>
-                            <input v-on:change="onFileChange(event, 'residency-proof')" type="file" id="residency-proof" class="input-file" accept="application/pdf">
+                            <input v-model="ResidencyProof" v-on:change="onFileChange(event, 'residency-proof')" type="file" id="residency-proof" class="input-file" accept="application/pdf">
                             <label for="residency-proof" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -236,7 +316,7 @@ var Solicitud = Vue.component('Solicitud', {
                                     <span class="custom-popover above">Y/o kardex emitida por la IES en papel membretado y firmado por el responsable del área que incluya, las calificaciones y el promedio final, expresados númericamente del último ciclo escolar, en donde se demuestre haber obtenido un promedio mínimo de 8.0 (ocho) en las materias y/o asignaturas</span>
                                 </span>
                             </label>
-                            <input v-on:change="onFileChange(event, 'kardex')" type="file" id="kardex" class="input-file" accept="application/pdf">
+                            <input v-model="Kardex" v-on:change="onFileChange(event, 'kardex')" type="file" id="kardex" class="input-file" accept="application/pdf">
                             <label for="kardex" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -249,7 +329,7 @@ var Solicitud = Vue.component('Solicitud', {
                                     <span class="custom-popover above">Del mes anterior a la fecha de entrega de documentos que pueden ser: los últimos talones de pago, constancia de percepciones, recibo de pago por salario; en caso no contar con ninguno de estos, puede elaborar una carta "bajo protesta de decir la verdad" indicando sus ingresos mensuales</span>
                                 </span>
                             </label>
-                            <input v-on:change="onFileChange(event, 'income-proof')" type="file" id="income-proof" class="input-file" accept="application/pdf">
+                            <input v-model="IncomeProof" v-on:change="onFileChange(event, 'income-proof')" type="file" id="income-proof" class="input-file" accept="application/pdf">
                             <label for="income-proof" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -262,7 +342,7 @@ var Solicitud = Vue.component('Solicitud', {
                                     <span class="custom-popover above">O tira de materias para el ciclo {{ new Date().getFullYear() }}-{{ new Date().getFullYear() + 1 }}</span>
                                 </span>
                             </label>
-                            <input v-on:change="onFileChange(event, 're-registration-proof')" type="file" id="re-registration-proof" class="input-file" accept="application/pdf">
+                            <input v-model="ReregistrationProof" v-on:change="onFileChange(event, 're-registration-proof')" type="file" id="re-registration-proof" class="input-file" accept="application/pdf">
                             <label for="re-registration-proof" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -275,7 +355,7 @@ var Solicitud = Vue.component('Solicitud', {
                                     <span class="custom-popover above">Necesarios para sustentar la Solicitud de Becas, Estancias y Estudio socioeconómico<br />(puede subir uno o más documentos)</span>
                                 </span>
                             </label>
-                            <input v-on:change="onFileChange(event, 'complementary-documentation')" type="file" id="complementary-documentation" class="input-file" accept="application/pdf" multiple>
+                            <input v-model="ComplementaryDocumentation" v-on:change="onFileChange(event, 'complementary-documentation')" type="file" id="complementary-documentation" class="input-file" accept="application/pdf" multiple>
                             <label for="complementary-documentation" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Subir archivos</span>
@@ -284,7 +364,7 @@ var Solicitud = Vue.component('Solicitud', {
 
                         <div class="col-md-4 mb-6">
                             <label class="lbl-input-file">Fotografía tamaño infantil</label>
-                            <input v-on:change="onFileChange(event, 'small-photography')" type="file" id="small-photography" class="input-file" accept="application/pdf">
+                            <input v-model="SmallPhotography" v-on:change="onFileChange(event, 'small-photography')" type="file" id="small-photography" class="input-file" accept="application/pdf">
                             <label for="small-photography" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
@@ -297,7 +377,7 @@ var Solicitud = Vue.component('Solicitud', {
                                     <span class="custom-popover above">A su nombre y número CLABE</span>
                                 </span>
                             </label>
-                            <input v-on:change="onFileChange(event, 'bank-account')" type="file" id="bank-account" class="input-file" accept="application/pdf">
+                            <input v-model="BankAccount" v-on:change="onFileChange(event, 'bank-account')" type="file" id="bank-account" class="input-file" accept="application/pdf">
                             <label for="bank-account" class="btn btn-tertiary js-labelFile">
                                 <i class="icon fa fa-check"></i>
                                 <span class="js-fileName">Sube un archivo</span>
