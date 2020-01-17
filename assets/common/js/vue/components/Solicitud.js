@@ -126,8 +126,11 @@ var Solicitud = Vue.component('Solicitud', {
                     }
                     else {
                         showLoader();
-                        
-                        this.ApplicationFormData.append('Application_JSON_Body', JSON.stringify(this.RequestTemplate.Request_JSON_Body));
+
+                        if (!this.ApplicationFormData.has('Application_JSON_Body')) {
+                            this.ApplicationFormData.append('Application_JSON_Body', JSON.stringify(this.RequestTemplate.Request_JSON_Body));
+                        }
+
                         this.$http.post(APIUrl() + 'Application/AddApplication', this.ApplicationFormData, {
                             headers: {
                                 APIKey: config.APIKey
@@ -148,7 +151,13 @@ var Solicitud = Vue.component('Solicitud', {
                             },
                             err => {
                                 console.log(err);
-                                error_swal('Error...', 'Error interno estamos trabajando para solucionarlo');
+
+                                if (err.body.error === 'NotNull') {
+                                    warning_swal('Solicitud enviada', 'Ya existe una solicitud asignada a este CURP');
+                                }
+                                else {
+                                    error_swal('Error...', 'Error interno estamos trabajando para solucionarlo');
+                                }
                                 hideLoader();
                             }
                         );

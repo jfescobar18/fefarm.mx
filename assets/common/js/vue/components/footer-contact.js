@@ -8,7 +8,7 @@ var footerContact = Vue.component('footer-contact', {
                         Nicolás San Juan n.1511, Col. Del Valle, 03100.<br> Ciudad de México, CDMX.
                     </P>
                     <p>
-                        mail. fefarm@fefarm.mx
+                        mail. contacto@fefarm.mx
                     </p>
                     <p>
                         Tel. 555605 - 7726
