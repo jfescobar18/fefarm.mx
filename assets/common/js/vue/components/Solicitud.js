@@ -131,6 +131,10 @@ var Solicitud = Vue.component('Solicitud', {
                             this.ApplicationFormData.append('Application_JSON_Body', JSON.stringify(this.RequestTemplate.Request_JSON_Body));
                         }
 
+                        if (!this.ApplicationFormData.has('Request_Id')) {
+                            this.ApplicationFormData.append('Request_Id', this.$route.params.Request_Id);
+                        }
+
                         this.$http.post(APIUrl() + 'Application/AddApplication', this.ApplicationFormData, {
                             headers: {
                                 APIKey: config.APIKey
