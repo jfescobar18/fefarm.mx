@@ -58,7 +58,7 @@ var Solicitud = Vue.component('Solicitud', {
             showLoader();
             this.$http.get(APIUrl() + 'Requests/GetRequestTemplate/' + this.$route.params.Request_Id, {
                 headers: {
-                    APIKey: config.APIKey
+                    APIKey: window.config.APIKey
                 }
             }).then(
                 response => {
@@ -137,7 +137,7 @@ var Solicitud = Vue.component('Solicitud', {
 
                         this.$http.post(APIUrl() + 'Application/AddApplication', this.ApplicationFormData, {
                             headers: {
-                                APIKey: config.APIKey
+                                APIKey: window.config.APIKey
                             }
                         }).then(
                             response => {

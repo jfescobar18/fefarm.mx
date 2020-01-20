@@ -9,7 +9,7 @@ var Reglamento = Vue.component('Reglamento', {
             showLoader();
             this.$http.get(APIUrl() + 'RulesPDF/GetPDFs', {
                 headers: {
-                    APIKey: config.APIKey
+                    APIKey: window.config.APIKey
                 }
             }).then(
                 response => {

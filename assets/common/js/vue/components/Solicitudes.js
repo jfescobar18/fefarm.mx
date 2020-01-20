@@ -9,7 +9,7 @@ var Solicitud = Vue.component('Solicitud', {
             showLoader();
             this.$http.get(APIUrl() + 'Requests/GetOpenRequestTemplates', {
                 headers: {
-                    APIKey: config.APIKey
+                    APIKey: window.config.APIKey
                 }
             }).then(
                 response => {

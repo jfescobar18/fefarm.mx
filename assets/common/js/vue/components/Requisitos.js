@@ -9,7 +9,7 @@ var Requisitos = Vue.component('Requisitos', {
             showLoader();
             this.$http.get(APIUrl() + 'RequirementsPDF/GetPDFs', {
                 headers: {
-                    APIKey: config.APIKey
+                    APIKey: window.config.APIKey
                 }
             }).then(
                 response => {

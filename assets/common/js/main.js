@@ -1,18 +1,18 @@
-import navibar from './vue/components/navibar.js';
-import mainBanner from './vue/components/main-banner.js';
-import sectionBanner from './vue/components/section-banner.js';
-import footerContact from './vue/components/footer-contact.js';
-import footerMedia from './vue/components/footer-media.js';
-import aboutusCards from './vue/components/aboutus-cards.js'
-import Mision from './vue/components/mision.js'
-import Vision from './vue/components/vision.js'
-import Organigrama from './vue/components/organigrama.js'
-import Reglamento from './vue/components/Reglamento.js'
-import Solicitudes from './vue/components/Solicitudes.js'
-import Solicitud from './vue/components/Solicitud.js'
-import Evidencias from './vue/components/Evidencias.js'
-import Requisitos from './vue/components/Requisitos.js'
-import Noticias from './vue/components/Noticias.js'
+import navibar from './vue/components/navibar.js?n=1';
+import mainBanner from './vue/components/main-banner.js?n=1';
+import sectionBanner from './vue/components/section-banner.js?n=1';
+import footerContact from './vue/components/footer-contact.js?n=1';
+import footerMedia from './vue/components/footer-media.js?n=1';
+import aboutusCards from './vue/components/aboutus-cards.js?n=1'
+import Mision from './vue/components/mision.js?n=1'
+import Vision from './vue/components/vision.js?n=1'
+import Organigrama from './vue/components/organigrama.js?n=1'
+import Reglamento from './vue/components/Reglamento.js?n=1'
+import Solicitudes from './vue/components/Solicitudes.js?n=1'
+import Solicitud from './vue/components/Solicitud.js?n=1'
+import Evidencias from './vue/components/Evidencias.js?n=1'
+import Requisitos from './vue/components/Requisitos.js?n=1'
+import Noticias from './vue/components/Noticias.js?n=1'
 
 const router = new VueRouter({
     routes: [
@@ -71,11 +71,5 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router,
-    mounted: function () {
-        if(localStorage.getItem("CachedPage") === null) {
-            localStorage.setItem('CachedPage', true);
-            window.location.reload(true);
-        }
-    }
+    router
 })
