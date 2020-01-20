@@ -212,11 +212,12 @@ var Solicitud = Vue.component('Solicitud', {
                             <div class="form-group">
                                 <label v-if="input.type !== '7' && input.type !== '8' && input.type !== '9' && input.type !== '10'" v-bind:for="'input-id-' + input.id" v-bind:for="'input-id-' + input.id">{{input.label}}</label>
                                 
-                                <input v-if="input.type === '1'" v-model="input.answers[0]" type="text" class="form-control" placeholder="" v-bind:id="'input-id-' + input.id">
+                                <input v-if="input.type === '1'" v-model="input.answers[0]" type="text" class="form-control" v-bind:required="input.required" v-bind:id="'input-id-' + input.id">
                                 
-                                <input v-if="input.type === '2'" v-model="input.answers[0]" type="date" class="form-control" placeholder="" v-bind:id="'input-id-' + input.id">
+                                <input v-if="input.type === '2'" v-model="input.answers[0]" type="date" class="form-control" v-bind:required="input.required" v-bind:id="'input-id-' + input.id">
                                 
-                                <select v-if="input.type === '3'" v-model="input.answers[0]" v-bind:id="'input-id-' + input.id" class="form-control">
+                                <select v-if="input.type === '3'" v-model="input.answers[0]" v-bind:id="'input-id-' + input.id" v-bind:required="input.required" class="form-control">
+                                    <option value="">Selecciona</option>
                                     <option v-for="(option, index) in input.values.array" v-bind:value="index">{{ option.split(';').join(',') }}</option>
                                 </select>
                                 
@@ -230,7 +231,7 @@ var Solicitud = Vue.component('Solicitud', {
                                 
                                 <input v-if="input.type === '5'" v-model="input.answers[0]" type="checkbox" v-bind:id="'input-id-' + input.id">
                                 
-                                <textarea v-if="input.type === '6'" v-model="input.answers[0]" class="form-control" v-bind:id="'input-id-' + input.id" rows="10">{{ input.answers[0] }}</textarea>
+                                <textarea v-if="input.type === '6'" v-model="input.answers[0]" class="form-control" v-bind:id="'input-id-' + input.id" v-bind:required="input.required" rows="10">{{ input.answers[0] }}</textarea>
                                 
                                 <template v-if="input.type === '7'">
                                     <hr />
