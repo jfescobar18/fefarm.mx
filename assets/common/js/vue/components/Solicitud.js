@@ -85,43 +85,43 @@ var Solicitud = Vue.component('Solicitud', {
                 dangerMode: true
             }).then((value) => {
                 if (value) {
-                    if (this.ProfileImage === null) {
+                    if (this.ProfileImage === null || !this.ApplicationFormData.has('profile-image')) {
                         warning_swal('Sin archivo', 'No has adjuntado tu fotografía');
                     }
-                    else if (this.TutorSignature === null) {
+                    else if (this.TutorSignature === null || !this.ApplicationFormData.has('tutor-signature')) {
                         warning_swal('Sin archivo', 'No has adjuntado Nombre y firma del padre o tutor');
                     }
-                    else if (this.PersonSignature === null) {
+                    else if (this.PersonSignature === null || !this.ApplicationFormData.has('person-signature')) {
                         warning_swal('Sin archivo', 'No has adjuntado Nombre y firma del aspirante');
                     }
-                    else if (this.BirthCertificate === null) {
+                    else if (this.BirthCertificate === null || !this.ApplicationFormData.has('birth-certificate')) {
                         warning_swal('Sin archivo', 'No has adjuntado Acta de nacimiento');
                     }
-                    else if (this.CURP === null) {
+                    else if (this.CURP === null || !this.ApplicationFormData.has('CURP')) {
                         warning_swal('Sin archivo', 'No has adjuntado CURP');
                     }
-                    else if (this.OfficialId === null) {
+                    else if (this.OfficialId === null || !this.ApplicationFormData.has('official-id')) {
                         warning_swal('Sin archivo', 'No has adjuntado Identificación oficial');
                     }
-                    else if (this.ResidencyProof === null) {
+                    else if (this.ResidencyProof === null || !this.ApplicationFormData.has('residency-proof')) {
                         warning_swal('Sin archivo', 'No has adjuntado Comprobante de domicilio');
                     }
-                    else if (this.Kardex === null) {
+                    else if (this.Kardex === null || !this.ApplicationFormData.has('kardex')) {
                         warning_swal('Sin archivo', 'No has adjuntado Historial académico');
                     }
-                    else if (this.IncomeProof === null) {
+                    else if (this.IncomeProof === null || !this.ApplicationFormData.has('income-proof')) {
                         warning_swal('Sin archivo', 'No has adjuntado Comprobante de ingresos');
                     }
-                    else if (this.ReregistrationProof === null) {
+                    else if (this.ReregistrationProof === null || !this.ApplicationFormData.has('re-registration-proof')) {
                         warning_swal('Sin archivo', 'No has adjuntado Comprobante de reinscripción');
                     }
-                    else if (this.ComplementaryDocumentation === null) {
+                    else if (this.ComplementaryDocumentation === null || !this.ApplicationFormData.has('complementary-documentation0')) {
                         warning_swal('Sin archivo', 'No has adjuntado Documentos complementarios');
                     }
-                    else if (this.SmallPhotography === null) {
+                    else if (this.SmallPhotography === null || !this.ApplicationFormData.has('small-photography')) {
                         warning_swal('Sin archivo', 'No has adjuntado Fotografía tamaño infantil');
                     }
-                    else if (this.BankAccount === null) {
+                    else if (this.BankAccount === null || !this.ApplicationFormData.has('bank-account')) {
                         warning_swal('Sin archivo', 'No has adjuntado Cuenta bancaria');
                     }
                     else {
